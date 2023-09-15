@@ -17,24 +17,26 @@ import com.topjava.restaurantvoiting.util.JsonUtil;
 import java.sql.SQLException;
 import java.util.Map;
 
+
 @Configuration
 @Slf4j
 @EnableCaching
 public class AppConfig {
     @Profile("!test")
     @Bean(initMethod = "start", destroyMethod = "stop")
-    Server h2Server() throws SQLException{
+    Server h2Server() throws SQLException {
         log.info("Start H2 TCP server");
-        return Server.createTcpServer("-tcp", "-tcpAllowOthers","-tcpPort","9092");
+        return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092");
     }
 
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.ANY)
-    interface  MixIn{
+    interface MixIn {
         @JsonAnyGetter
         Map<String, Object> getProperties();
     }
+
     @Autowired
-    void configureAndStoreObjectMapper(ObjectMapper objectMapper){
+    void configureAndStoreObjectMapper(ObjectMapper objectMapper) {
         objectMapper.registerModule(new Hibernate5JakartaModule());
         objectMapper.addMixIn(ProblemDetail.class, MixIn.class);
         JsonUtil.setMapper(objectMapper);
