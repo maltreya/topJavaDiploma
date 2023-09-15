@@ -15,10 +15,10 @@ INSERT INTO users (NAME, EMAIL, PASSWORD)
 VALUES ('Brad Pitt', 'bradpitt@gmail.com', '{noop}password'),
        ('Christoph Waltz', 'christophwalttz@gmail.com', '{noop}password'),
        ('Michael Fassbender', 'michaelfassbender@gmail.com', '{noop}password'),
-       ('Eli Roth', 'eliroth@gmail.com', '{noop}password'),
+       ('Eli Roth', 'admin@gmail.com', '{noop}password'),
        ('Diane Kruger', 'dianekruger@gmail.com', '{noop}password');
 
-INSERT INTO USER_ROLES(ROLE, USER_IO)
+INSERT INTO USER_ROLES(ROLE, USER_ID)
 VALUES ('USER', 100000),
        ('USER', 100001),
        ('USER', 100002),
@@ -48,16 +48,14 @@ VALUES (now(), 'Tagliolini Thai', 46.90, 100005),
        (now(), 'Double Trouble with chips and lemonade', 52.90, 100007),
        ('2023-07-07', 'Leek risotto with crayfish meat', 48.00, 100008),
        ('2023-07-07', 'Grilled dry watermelon', 78.00, 100008),
-       ('2023-07-07', 'Beef tenderloin', 169.00, 100008),
-       ('2023-07-07', 'Sturgeon fillet', 115.00, 100008),
+       ('2023-07-07', 'Beef tenderloin', 79.00, 100008),
+       ('2023-07-07', 'Sturgeon fillet', 95.00, 100008),
        ('2023-07-07', 'Masurian Zander', 86.00, 100008);
 
-INSERT INTO VOTES(VOTE_DATE, USER_ID, RESTAURANT_ID)
-VALUES (now(),100000,100005),
-       (now(),100001,10006),
-       (now(),100002,100007),
-       (now(),100003,100008),
-       ('2023-07-07',100000,100008),
-       ('2023-07-07',100001,100007),
-       ('2023-07-07',100002,100006),
-       ('2023-07-07',100003,100005);
+INSERT INTO VOTES (VOTE_DATE, USER_ID, RESTAURANT_ID)
+VALUES (now(), 100000, 100005),
+       (now(), 100001, 100006),
+       (now(), 100003, 100007),
+       ('2023-07-07', 100000, 100005),
+       ('2023-07-07', 100001, 100006),
+       ('2023-07-07', 100002, 100007);

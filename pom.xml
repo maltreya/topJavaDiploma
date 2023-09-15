@@ -6,14 +6,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.2</version>
     <relativePath/>
   </parent>
 
   <groupId>com.java.restaurantvoiting</groupId>
   <artifactId>diploma</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>diploma Maven Webapp</name>
   <description>Restaurant voting application</description>
 

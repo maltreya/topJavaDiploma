@@ -22,8 +22,8 @@ public class VoteTo extends BaseTo implements Serializable {
     private Integer userId;
     private Integer restaurantId;
 
-    @ConstructorProperties({"id","voteDate","userId"})
-    public VoteTo (Integer id, LocalDate voteDate, Integer userId, Integer restaurantId){
+    @ConstructorProperties({"id", "voteDate", "userId", "restaurantId"})
+    public VoteTo(Integer id, LocalDate voteDate, Integer userId, Integer restaurantId) {
         super(id);
         this.voteDate = voteDate;
         this.userId = userId;
@@ -32,13 +32,13 @@ public class VoteTo extends BaseTo implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(voteDate,userId,restaurantId);
+        return Objects.hash(voteDate, userId, restaurantId);
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj ==null || getClass() !=obj.getClass()) return false;
+        if (obj == null || getClass() != obj.getClass()) return false;
         VoteTo voteTo = (VoteTo) obj;
         return voteDate.equals(voteTo.voteDate)
                 && userId.equals(voteTo.userId)

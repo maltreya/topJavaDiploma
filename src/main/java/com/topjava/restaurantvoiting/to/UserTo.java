@@ -15,6 +15,7 @@ import java.beans.ConstructorProperties;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Objects;
 import java.util.Set;
 
@@ -45,7 +46,7 @@ public class UserTo extends BaseTo implements Serializable {
     private boolean enabled = true;
 
     @JsonView(View.JsonREST.class)
-    private LocalDate registered;
+    private LocalDate registered = LocalDate.now(ZoneId.systemDefault());
 
     @JsonView(View.JsonREST.class)
     private Set<Role> roles;
@@ -60,19 +61,19 @@ public class UserTo extends BaseTo implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name,email,password,enabled,registered,roles);
+        return Objects.hash(name, email, password, enabled, registered, roles);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass() !=obj.getClass()) return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         UserTo userTo = (UserTo) obj;
         return enabled == userTo.enabled
                 && name.equals(userTo.name)
                 && email.equals(userTo.email)
                 && password.equals(userTo.password)
-                && Objects.equals(registered,userTo.registered)
-                && Objects.equals(roles,userTo.roles);
+                && Objects.equals(registered, userTo.registered)
+                && Objects.equals(roles, userTo.roles);
     }
 }

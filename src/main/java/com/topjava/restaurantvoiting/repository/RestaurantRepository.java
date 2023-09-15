@@ -10,13 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional(readOnly = true)
-public interface RestaurantRepository extends JpaRepository <Restaurant, Integer>{
+public interface RestaurantRepository extends JpaRepository<Restaurant, Integer> {
     @Transactional
     @Modifying
     @Query("DELETE FROM Restaurant r WHERE r.id=:id")
     int delete(@Param("id") int id);
+
     @Query("SELECT r FROM Restaurant r JOIN FETCH r.foods")
     List<Restaurant> getAllWithMenu();
+
     @Query("SELECT r FROM Restaurant r JOIN FETCH r.foods m WHERE r.id=:id AND m.prepDate=current_date")
     Restaurant getMenuOfDay(int id);
 }

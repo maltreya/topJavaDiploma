@@ -57,7 +57,7 @@ public class Food extends AbstractBaseEntity {
                 ", voteDate=" + prepDate +
                 ", description=" + description +
                 ", price=" + price +
-                ", restaurant=" + restaurant+
+                ", restaurant=" + restaurant +
                 "}";
     }
 

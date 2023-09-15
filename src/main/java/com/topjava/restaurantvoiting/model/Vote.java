@@ -15,35 +15,36 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Vote extends AbstractBaseEntity{
-    @Column(name="vote_date", nullable = false)
+public class Vote extends AbstractBaseEntity {
+    @Column(name = "vote_date", nullable = false)
     @NotNull
     private LocalDate voteDate;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     @NotNull
     @JsonBackReference
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="restaurant_id")
+    @JoinColumn(name = "restaurant_id")
     @NotNull
     private Restaurant restaurant;
 
-    public Vote(Integer id, LocalDate voteDate, User user, Restaurant restaurant){
+    public Vote(Integer id, LocalDate voteDate, User user, Restaurant restaurant) {
         super(id);
         this.voteDate = voteDate;
         this.user = user;
-        this.restaurant=restaurant;
+        this.restaurant = restaurant;
     }
+
     @Override
-    public String toString(){
-        return "Vote{"+
-                "id="+id+
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
                 ", voteDate=" + voteDate +
-                ", user="+user+
-                ",restaurant="+restaurant+
+                ", user=" + user +
+                ",restaurant=" + restaurant +
                 "}";
     }
 }

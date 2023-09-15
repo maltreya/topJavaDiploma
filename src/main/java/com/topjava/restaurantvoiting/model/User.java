@@ -40,13 +40,13 @@ public class User extends AbstractNamedEntity {
     @Column(name = "enabled", nullable = false)
     private boolean enabled = true;
 
-    @Column(name = "registred", nullable = false, columnDefinition = "timestamp default now()", updatable = false)
+    @Column(name = "registered", nullable = false, columnDefinition = "timestamp default now()", updatable = false)
     @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Date registered = new Date();
 
     @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role"},
                     name = "user_roles_idx")})
     @Column(name = "role")

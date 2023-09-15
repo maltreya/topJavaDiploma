@@ -4,9 +4,10 @@ spring:
     open-in-view: false
     defer-datasource-initialization: true
     hibernate:
-        ddl-auto: create
+      ddl-auto: create
     properties:
       hibernate:
+        format_sql: true
         default_batch_fetch_size: 20
         jdbc:
           batch_size: 20
@@ -34,8 +35,6 @@ logging:
     com.topjava.restaurantvoiting: DEBUG
     org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
 
-server.servlet:
-  encoding:
 server:
   servlet:
     encoding:

@@ -7,12 +7,15 @@ import com.topjava.restaurantvoiting.View;
 public abstract class BaseTo implements HasId {
     @JsonView(View.JsonREST.class)
     protected Integer id;
-    public BaseTo(){
+
+    public BaseTo() {
 
     }
-    public BaseTo(Integer id){
-        this.id=id;
+
+    public BaseTo(Integer id) {
+        this.id = id;
     }
+
     @Override
     public Integer getId() {
         return id;
@@ -20,6 +23,6 @@ public abstract class BaseTo implements HasId {
 
     @Override
     public void setId(Integer id) {
-        this.id=id;
+        this.id = id;
     }
 }

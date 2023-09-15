@@ -31,19 +31,21 @@ public class Restaurant extends AbstractNamedEntity {
     @BatchSize(size = 200)
     private List<Vote> votes;
 
-    public Restaurant(String name){
-        this(null,name);
+    public Restaurant(String name) {
+        this(null, name);
     }
-    public Restaurant(Integer id, String name){
-        super(id,name);
+
+    public Restaurant(Integer id, String name) {
+        super(id, name);
         this.name = name;
     }
+
     @Override
-    public String toString(){
-        return "Restaurant{"+
-                "id="+id+
+    public String toString() {
+        return "Restaurant{" +
+                "id=" + id +
                 ", menu=" + foods +
-                ", votes="+ votes +
+                ", votes=" + votes +
                 ", name=" + name +
                 "}";
     }

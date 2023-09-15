@@ -60,14 +60,14 @@ public class FoodService {
     public List<Food> getAllByDate(LocalDate prepDate) {
         Assert.notNull(prepDate, "prepDate should not be null");
         List<Food> foods = repository.getAllByDate(prepDate);
-        return checkExisted(foods,prepDate);
+        return checkExisted(foods, prepDate);
     }
 
     //by restaurant & date
     public List<Food> getAllByRestaurantAndDate(int restaurantId, LocalDate prepDate) {
         Assert.notNull(prepDate, "prepDate should not be null");
-        List<Food> foods = repository.getAllByRestaurantAndDate(restaurantId,prepDate);
-        return checkExisted(foods,prepDate,restaurantId);
+        List<Food> foods = repository.getAllByRestaurantAndDate(restaurantId, prepDate);
+        return checkExisted(foods, prepDate, restaurantId);
     }
 
     @CacheEvict(value = "foods", allEntries = true)

@@ -16,7 +16,7 @@ import static com.topjava.restaurantvoiting.util.ValidationUtil.checkNotFoundWit
 
 @Service
 public class RestaurantService {
-    private static final Sort SORT_NAME = Sort.by(Sort.Direction.ASC,"name");
+    private static final Sort SORT_NAME = Sort.by(Sort.Direction.ASC, "name");
     private final RestaurantRepository repository;
 
     public RestaurantService(RestaurantRepository repository) {

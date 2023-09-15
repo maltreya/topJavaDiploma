@@ -31,21 +31,23 @@ public class SecurityConfiguration {
     private final UserRepository userRepository;
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return PASSWORD_ENCODER;
     }
+
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(
-                email -> {
-                    log.debug("Authenticating '{}'", email);
-                    Optional<User> optionalUser = userRepository.findByEmailIgnoreCase(email);
-                    return new AuthUser(optionalUser.orElseThrow(
-                            () -> new UsernameNotFoundException("User '"+email+"' was not found")
-                    ));
-                })
+                        email -> {
+                            log.debug("Authenticating '{}'", email);
+                            Optional<User> optionalUser = userRepository.findByEmailIgnoreCase(email);
+                            return new AuthUser(optionalUser.orElseThrow(
+                                    () -> new UsernameNotFoundException("User '" + email + "' was not found")
+                            ));
+                        })
                 .passwordEncoder(PASSWORD_ENCODER);
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()

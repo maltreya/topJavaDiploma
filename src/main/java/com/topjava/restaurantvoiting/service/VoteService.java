@@ -78,15 +78,16 @@ public class VoteService {
     public void update(int id, int restaurantId) {
         votingTimeVerification(clock);
         Vote vote = voteRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("Vote "+id+"not found"));
+                () -> new NotFoundException("Vote " + id + "not found"));
         Assert.notNull(vote, "vote should not be null");
-        assureIdConsistent(vote,vote.id());
+        assureIdConsistent(vote, vote.id());
         vote.setRestaurant(restaurantRepository.findById(restaurantId).orElseThrow(
-                () -> new NotFoundException("Restaurant " +restaurantId + " not found")
+                () -> new NotFoundException("Restaurant " + restaurantId + " not found")
         ));
         checkNotFoundWithId(voteRepository.save(vote), vote.id());
     }
-    public void delete(int id){
+
+    public void delete(int id) {
         checkNotFoundWithId(voteRepository.delete(id) != 0, id);
     }
 }

@@ -23,27 +23,28 @@ public class RestaurantTo extends BaseTo implements Serializable {
     private List<Food> foods;
 
     @ConstructorProperties({"id", "name"})
-    public RestaurantTo(Integer id,String name) {
-        this.id=id;
-        this.name=name;
+    public RestaurantTo(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
-    @ConstructorProperties({"id", "name","menu"})
-    public RestaurantTo(Integer id,String name,List<Food> foods) {
-        this.id=id;
-        this.name=name;
-        this.foods=foods;
+
+    @ConstructorProperties({"id", "name", "menu"})
+    public RestaurantTo(Integer id, String name, List<Food> foods) {
+        this.id = id;
+        this.name = name;
+        this.foods = foods;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name,foods);
+        return Objects.hash(name, foods);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if (obj == null || getClass() !=obj.getClass()) return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         RestaurantTo that = (RestaurantTo) obj;
-        return name.equals(that.name) && Objects.equals(foods,that.foods);
+        return name.equals(that.name) && Objects.equals(foods, that.foods);
     }
 }
